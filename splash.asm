@@ -8,10 +8,6 @@
 .label screenram = $0400
 .label colourram = $d800
 
-.var bordercolour = 4 // Purple background
-.var backgroundcolour = 0 // Black background
-
-
 	// Import the crunched program
 
 	*=$0801

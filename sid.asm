@@ -3,7 +3,7 @@
 
 sid_init = $A000
 sid_play = $A003
-siddata = $A000
+; sid_data = $A000
 
 .segment "CODE"
 
@@ -18,8 +18,8 @@ siddata = $A000
         stx $315
 
         cli ; clear interrupt disable flag
-        rts     
-.endproc        
+        rts
+.endproc
 
 .proc _interrupt
         jsr sid_play
