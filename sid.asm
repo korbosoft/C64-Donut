@@ -23,7 +23,7 @@ siddata = $A000
 
 .proc _interrupt
         jsr sid_play
-        jsr _waitvsync
+        jsr _waitvsync ; slow down the song to the right speed for the Addiction cover by waiting for vsync
 ;         dec 53280 ; flash border to see we are live
         jmp $EA31 ; do the normal interrupt service routine
 .endproc
