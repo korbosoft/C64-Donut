@@ -1,5 +1,4 @@
 .export _setupAndStartPlayer
-.import _waitvsync
 
 sid_init = $A000
 sid_play = $A003
@@ -22,8 +21,12 @@ sid_play = $A003
 .endproc
 
 .proc _interrupt
+        lda $D011
+        and #128
+        beq vblank
+        jmp $EA31 ; do the normal interrupt service routine
+vblank:
         jsr sid_play
-        jsr _waitvsync ; slow down the song to the right speed for the Addiction cover by waiting for vsync
 ;         dec 53280 ; flash border to see we are live
         jmp $EA31 ; do the normal interrupt service routine
 .endproc
